@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+
 
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
@@ -63,7 +63,16 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
+
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, 	"%s",           "%F %T" },
+	{ wifi_essid,		"Wi-Fi: CONN: %s ",	"wlan0" },
+	{ wifi_perc,		"SIGNAL(%): %s ",	"wlan0" },
+	{ netspeed_tx,		"REC: %s ",		"wlan0" },
+	{ netspeed_rx,		"TRANS: %s",		"wlan0" },
+	{ separator,		"%s",			" | " },
+	{ datetime, 		"%s",           	"%D %R" },
+	{ separator,		"%s",			" | " },
+	{ battery_perc,		"BATT %: %s ",		"BAT0" },
+	{ battery_state,	"CHRG?: %s",		"BAT0" },
 };
